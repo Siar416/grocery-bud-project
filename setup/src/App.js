@@ -9,7 +9,22 @@ function App() {
   const [editID, setEditID] = useState(null);
   const [alert, setAlert] = useState({ show: false, msg: "", type: "" });
 
-  return <h2>grocery bud setup</h2>;
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("hello");
+  };
+
+  return (
+    <section className="section-center">
+      <form className="grocery-form" onSubmit={handleSubmit}>
+        {alert.show && <Alert />}
+      </form>
+      <div className="grocery-container">
+        <List />
+        <button className="clear-btn">clear item</button>
+      </div>
+    </section>
+  );
 }
 
 export default App;
